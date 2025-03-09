@@ -20,21 +20,24 @@ class TimeEntry:
         A fractional number of hours spent on this activity
     """
 
-    def __init__(self):
-        """Base Constructor for class TimeEntry"""
-        self.start = datetime.datetime.now()
-        self.stop = datetime.datetime.now()
-        self.activity = ""
-        self.notes = ""
-        self.duration = 0.0
-
-    def __init__(self, start: datetime, stop: datetime, activity: str, notes: str, duration: float):
-        """Full parameters Constructor for class TimeEntry"""
-        self.start = start
-        assert isinstance(stop, object)
+    def __init__(self, start=datetime.datetime.now(), 
+                 stop=datetime.datetime.now(), activity='', notes='', 
+                 duration=0.0):
+        """Full parameters Constructor for class TimeEntry
+        
+        Parameters
+        ----------
+        Same as the Attributes for the TimeEntry class
+        """
+        if isinstance(start, datetime.datetime):
+            self.start = start
+        elif isinstance(start, str):
+            self.start = datetime.datetime.fromisoformat(start)
         self.stop = stop
         self.activity = activity
         self.notes = notes
         self.duration = duration
 
+    def __str__(self):
+        return f"{self.activity}"
 

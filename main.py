@@ -4,7 +4,7 @@ from te import TimeEntry
 #import tkinter.ttk as ttk
 start2 = datetime.datetime(2025,1,20,13)
 stop2 = datetime.datetime(2025,1,20,14, 5)
-te1 = TimeEntry()
+# te1 = TimeEntry()
 te2 = TimeEntry(start2, stop2, "learning", "Place notes here", 0.0)
 
 
